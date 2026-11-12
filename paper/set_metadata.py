@@ -37,4 +37,23 @@ fix_docx("supplementary.docx", "Supplementary material: " + TITLE)
 fix_docx("suggested_reviewers.docx", "Suggested reviewers")
 fix_pdf("manuscript_make.pdf", TITLE)
 fix_pdf("supplementary.pdf", "Supplementary material: " + TITLE)
+
+def strip_custom_props(path):
+    """Remove the custom-properties part pandoc writes (bibliography/csl names)."""
+    import zipfile, shutil, re, os
+    tmp = path + ".tmp"
+    with zipfile.ZipFile(path) as zin, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+        for item in zin.infolist():
+            data = zin.read(item.filename)
+            if item.filename == "docProps/custom.xml":
+                continue
+            if item.filename == "[Content_Types].xml":
+                data = re.sub(rb'<Override[^>]*PartName="/docProps/custom.xml"[^>]*/>', b"", data)
+            if item.filename == "_rels/.rels":
+                data = re.sub(rb'<Relationship[^>]*Target="docProps/custom.xml"[^>]*/>', b"", data)
+            zout.writestr(item, data)
+    os.replace(tmp, path)
+
+for f in ("manuscript_make.docx", "cover_letter_make.docx", "supplementary.docx", "suggested_reviewers.docx"):
+    strip_custom_props(f)
 print("metadata set")
