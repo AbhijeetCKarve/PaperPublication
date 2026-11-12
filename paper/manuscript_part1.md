@@ -2,7 +2,7 @@
 title: "Drift-aware meta-adaptive anomaly detection for few-shot, non-stationary industrial IoT streams: a benchmarking protocol and the DAMAD detector"
 author:
   - Abhijeet Chandrakant Karve^1^ (corresponding author, ackarve11@gmail.com)
-  - Santosh Darade^1^
+  - Santosh Darade^1^ (santosh.darade@mituniversity.edu.in)
   - ^1^Department of Computer Science and Engineering, MIT Art, Design and Technology University, Rajbaug, Loni Kalbhor, Pune 412201, Maharashtra, India
 date: ""
 bibliography: references.bib
