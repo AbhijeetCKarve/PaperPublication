@@ -21,3 +21,6 @@ paper/latex/*.toc
 paper/latex/build.log
 paper/latex/body.md
 paper/latex/Definitions/*-eps-converted-to.pdf
+
+# assembled upload bundle (regenerated from the files above)
+paper/MAKE_submission_package.zip
