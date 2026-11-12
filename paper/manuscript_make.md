@@ -512,6 +512,24 @@ We set out to find a method that is few-shot capable, drift-aware and deployable
 
 **Conflicts of Interest:** The authors declare no conflicts of interest.
 
+**Abbreviations**
+
+The following abbreviations are used in this manuscript:
+
+| | |
+|---|---|
+| AD | Anomaly detection |
+| ADWIN | Adaptive windowing |
+| AUROC | Area under the receiver operating characteristic curve |
+| DAMAD | Drift-Aware Meta-Adaptive Detector |
+| ELBO | Evidence lower bound |
+| FPR | False-positive rate |
+| IIoT | Industrial Internet of Things |
+| MAML | Model-agnostic meta-learning |
+| MMD | Maximum mean discrepancy |
+| POT | Peaks over threshold |
+| VAE | Variational autoencoder |
+
 # References {.unnumbered}
 
 ::: {#refs}
