@@ -1,0 +1,380 @@
+\begin{thebibliography}{999}
+
+\bibitem[Chandola et~al.(2009)Chandola, Banerjee, and
+  Kumar]{chandola2009survey}
+Chandola, V.; Banerjee, A.; Kumar, V.
+\newblock Anomaly detection: A survey.
+\newblock {\em ACM Computing Surveys} {\bf 2009}, {\em 41},~15:1--15:58.
+\newblock {\url{https://doi.org/10.1145/1541880.1541882}}.
+
+\bibitem[Pang et~al.(2021)Pang, Shen, Cao, and van~den Hengel]{pang2021deep}
+Pang, G.; Shen, C.; Cao, L.; van~den Hengel, A.
+\newblock Deep learning for anomaly detection: A review.
+\newblock {\em ACM Computing Surveys} {\bf 2021}, {\em 54},~38:1--38:38.
+\newblock {\url{https://doi.org/10.1145/3439950}}.
+
+\bibitem[Kingma and Welling(2014)]{kingma2014vae}
+Kingma, D.P.; Welling, M.
+\newblock Auto-encoding variational {B}ayes.
+\newblock In Proceedings of the 2nd International Conference on Learning
+  Representations (ICLR),  2014.
+
+\bibitem[Audibert et~al.(2020)Audibert, Michiardi, Guyard, Marti, and
+  Zuluaga]{audibert2020usad}
+Audibert, J.; Michiardi, P.; Guyard, F.; Marti, S.; Zuluaga, M.A.
+\newblock {USAD}: Unsupervised anomaly detection on multivariate time series.
+\newblock In Proceedings of the Proceedings of the 26th ACM SIGKDD
+  International Conference on Knowledge Discovery \& Data Mining,  2020, pp.
+  3395--3404.
+\newblock {\url{https://doi.org/10.1145/3394486.3403392}}.
+
+\bibitem[Gama et~al.(2014)Gama, {\v{Z}}liobait{\.e}, Bifet, Pechenizkiy, and
+  Bouchachia]{gama2014drift}
+Gama, J.; {\v{Z}}liobait{\.e}, I.; Bifet, A.; Pechenizkiy, M.; Bouchachia, A.
+\newblock A survey on concept drift adaptation.
+\newblock {\em ACM Computing Surveys} {\bf 2014}, {\em 46},~44:1--44:37.
+
+\bibitem[Lu et~al.(2019)Lu, Liu, Dong, Gu, Gama, and Zhang]{lu2019drift}
+Lu, J.; Liu, A.; Dong, F.; Gu, F.; Gama, J.; Zhang, G.
+\newblock Learning under concept drift: A review.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering} {\bf 2019},
+  {\em 31},~2346--2363.
+\newblock {\url{https://doi.org/10.1109/TKDE.2018.2876857}}.
+
+\bibitem[Finn et~al.(2017)Finn, Abbeel, and Levine]{finn2017maml}
+Finn, C.; Abbeel, P.; Levine, S.
+\newblock Model-agnostic meta-learning for fast adaptation of deep networks.
+\newblock In Proceedings of the Proceedings of the 34th International
+  Conference on Machine Learning,  2017, Vol.~70, {\em PMLR}, pp. 1126--1135.
+
+\bibitem[Snell et~al.(2017)Snell, Swersky, and Zemel]{snell2017proto}
+Snell, J.; Swersky, K.; Zemel, R.
+\newblock Prototypical networks for few-shot learning.
+\newblock In Proceedings of the Advances in Neural Information Processing
+  Systems,  2017, Vol.~30, pp. 4077--4087.
+
+\bibitem[Hospedales et~al.(2022)Hospedales, Antoniou, Micaelli, and
+  Storkey]{hospedales2022meta}
+Hospedales, T.; Antoniou, A.; Micaelli, P.; Storkey, A.
+\newblock Meta-learning in neural networks: A survey.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}
+  {\bf 2022}, {\em 44},~5149--5169.
+
+\bibitem[Moon et~al.(2023)Moon, Noh, Jung, Lee, and Hwang]{moon2023mavae}
+Moon, J.; Noh, Y.; Jung, S.; Lee, J.; Hwang, E.
+\newblock Anomaly detection using a model-agnostic meta-learning-based
+  variational auto-encoder for facility management.
+\newblock {\em Journal of Building Engineering} {\bf 2023}, {\em 68},~106099.
+\newblock {\url{https://doi.org/10.1016/j.jobe.2023.106099}}.
+
+\bibitem[Feng et~al.(2024)Feng, Qi, Guo, and Wang]{feng2024metauad}
+Feng, T.; Qi, Q.; Guo, L.; Wang, J.
+\newblock {Meta-UAD}: A meta-learning scheme for user-level network traffic
+  anomaly detection,  2024.
+\newblock arXiv:2408.17031.
+
+\bibitem[Tian et~al.(2025)Tian, Li, Wang, Chen, Qin, and Zhang]{tian2024omlog}
+Tian, J.; Li, M.; Wang, Z.; Chen, L.; Qin, J.; Zhang, R.
+\newblock {OMLog}: Online log anomaly detection for evolving system with
+  meta-learning.
+\newblock {\em IEEE Internet of Things Journal} {\bf 2025}, {\em
+  12},~30142--30155.
+\newblock {\url{https://doi.org/10.1109/JIOT.2025.3569628}}.
+
+\bibitem[Kermenov et~al.(2023)Kermenov, Nabissi, Longhi, and
+  Bonci]{kermenov2023drift}
+Kermenov, R.; Nabissi, G.; Longhi, S.; Bonci, A.
+\newblock Anomaly detection and concept drift adaptation for dynamic systems: A
+  general method with practical implementation using an industrial
+  collaborative robot.
+\newblock {\em Sensors} {\bf 2023}, {\em 23},~3260.
+\newblock {\url{https://doi.org/10.3390/s23063260}}.
+
+\bibitem[Wahab(2022)]{wahab2022online}
+Wahab, O.A.
+\newblock Intrusion detection in the {IoT} under data and concept drifts:
+  Online deep learning approach.
+\newblock {\em IEEE Internet of Things Journal} {\bf 2022}, {\em
+  9},~19706--19716.
+\newblock {\url{https://doi.org/10.1109/JIOT.2022.3167005}}.
+
+\bibitem[Antoniou et~al.(2019)Antoniou, Edwards, and
+  Storkey]{antoniou2019mamlpp}
+Antoniou, A.; Edwards, H.; Storkey, A.
+\newblock How to train your {MAML}.
+\newblock In Proceedings of the 7th International Conference on Learning
+  Representations (ICLR),  2019.
+
+\bibitem[Li et~al.(2017)Li, Zhou, Chen, and Li]{li2017metasgd}
+Li, Z.; Zhou, F.; Chen, F.; Li, H.
+\newblock {Meta-SGD}: Learning to learn quickly for few-shot learning,  2017.
+\newblock arXiv:1707.09835.
+
+\bibitem[Nichol et~al.(2018)Nichol, Achiam, and Schulman]{nichol2018fomaml}
+Nichol, A.; Achiam, J.; Schulman, J.
+\newblock On first-order meta-learning algorithms,  2018.
+\newblock arXiv:1803.02999.
+
+\bibitem[Gama et~al.(2004)Gama, Medas, Castillo, and Rodrigues]{gama2004ddm}
+Gama, J.; Medas, P.; Castillo, G.; Rodrigues, P.
+\newblock Learning with drift detection.
+\newblock In Proceedings of the Advances in Artificial Intelligence -- SBIA
+  2004. Springer,  2004, Vol. 3171, {\em Lecture Notes in Computer Science},
+  pp. 286--295.
+\newblock {\url{https://doi.org/10.1007/978-3-540-28645-5_29}}.
+
+\bibitem[Bifet and Gavald{\`a}(2007)]{bifet2007adwin}
+Bifet, A.; Gavald{\`a}, R.
+\newblock Learning from time-changing data with adaptive windowing.
+\newblock In Proceedings of the Proceedings of the 2007 SIAM International
+  Conference on Data Mining,  2007, pp. 443--448.
+\newblock {\url{https://doi.org/10.1137/1.9781611972771.42}}.
+
+\bibitem[Gretton et~al.(2012)Gretton, Borgwardt, Rasch, Sch{\"o}lkopf, and
+  Smola]{gretton2012mmd}
+Gretton, A.; Borgwardt, K.M.; Rasch, M.J.; Sch{\"o}lkopf, B.; Smola, A.
+\newblock A kernel two-sample test.
+\newblock {\em Journal of Machine Learning Research} {\bf 2012}, {\em
+  13},~723--773.
+
+\bibitem[Hinder et~al.(2024{\natexlab{a}})Hinder, Vaquet, and
+  Hammer]{hinder2024a}
+Hinder, F.; Vaquet, V.; Hammer, B.
+\newblock One or two things we know about concept drift---A survey of
+  monitoring in evolving environments. {P}art {A}: Detecting concept drift.
+\newblock {\em Frontiers in Artificial Intelligence} {\bf 2024}, {\em
+  7},~1330257.
+\newblock {\url{https://doi.org/10.3389/frai.2024.1330257}}.
+
+\bibitem[Hinder et~al.(2024{\natexlab{b}})Hinder, Vaquet, and
+  Hammer]{hinder2024b}
+Hinder, F.; Vaquet, V.; Hammer, B.
+\newblock One or two things we know about concept drift---A survey of
+  monitoring in evolving environments. {P}art {B}: Locating and explaining
+  concept drift.
+\newblock {\em Frontiers in Artificial Intelligence} {\bf 2024}, {\em
+  7},~1330258.
+\newblock {\url{https://doi.org/10.3389/frai.2024.1330258}}.
+
+\bibitem[Kirkpatrick et~al.(2017)Kirkpatrick, Pascanu, Rabinowitz, Veness,
+  Desjardins, Rusu, Milan, Quan, Ramalho, Grabska-Barwinska, Hassabis, Clopath,
+  Kumaran, and Hadsell]{kirkpatrick2017ewc}
+Kirkpatrick, J.; Pascanu, R.; Rabinowitz, N.; Veness, J.; Desjardins, G.; Rusu,
+  A.A.; Milan, K.; Quan, J.; Ramalho, T.; Grabska-Barwinska, A.;  et~al.
+\newblock Overcoming catastrophic forgetting in neural networks.
+\newblock {\em Proceedings of the National Academy of Sciences} {\bf 2017},
+  {\em 114},~3521--3526.
+
+\bibitem[Rolnick et~al.(2019)Rolnick, Ahuja, Schwarz, Lillicrap, and
+  Wayne]{rolnick2019replay}
+Rolnick, D.; Ahuja, A.; Schwarz, J.; Lillicrap, T.; Wayne, G.
+\newblock Experience replay for continual learning.
+\newblock In Proceedings of the Advances in Neural Information Processing
+  Systems,  2019, Vol.~32.
+
+\bibitem[Wang et~al.(2024)Wang, Zhang, Su, and Zhu]{wang2024continual}
+Wang, L.; Zhang, X.; Su, H.; Zhu, J.
+\newblock A comprehensive survey of continual learning: Theory, method and
+  application.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}
+  {\bf 2024}, {\em 46},~5362--5383.
+
+\bibitem[Page et~al.(2021)Page, McKenzie, Bossuyt, Boutron, Hoffmann, Mulrow,
+  et~al.]{page2021prisma}
+Page, M.J.; McKenzie, J.E.; Bossuyt, P.M.; Boutron, I.; Hoffmann, T.C.; Mulrow,
+  C.D.;  et~al.
+\newblock The {PRISMA} 2020 statement: An updated guideline for reporting
+  systematic reviews.
+\newblock {\em BMJ} {\bf 2021}, {\em 372},~n71.
+
+\bibitem[Yan et~al.(2024)Yan, Yang, Shen, Gao, and Gu]{yan2024fewshot}
+Yan, Y.; Yang, Y.; Shen, F.; Gao, M.; Gu, Y.
+\newblock Meta learning-based few-shot intrusion detection for {5G}-enabled
+  industrial internet.
+\newblock {\em Complex \& Intelligent Systems} {\bf 2024}, {\em
+  10},~4589--4608.
+\newblock {\url{https://doi.org/10.1007/s40747-024-01388-1}}.
+
+\bibitem[Belay et~al.(2023)Belay, Blakseth, Rasheed, and
+  Salvo~Rossi]{belay2023iot}
+Belay, M.A.; Blakseth, S.S.; Rasheed, A.; Salvo~Rossi, P.
+\newblock Unsupervised anomaly detection for {IoT}-based multivariate time
+  series: Existing solutions, performance analysis and future directions.
+\newblock {\em Sensors} {\bf 2023}, {\em 23},~2844.
+\newblock {\url{https://doi.org/10.3390/s23052844}}.
+
+\bibitem[Goh et~al.(2017)Goh, Adepu, Junejo, and Mathur]{goh2016swat}
+Goh, J.; Adepu, S.; Junejo, K.N.; Mathur, A.
+\newblock A dataset to support research in the design of secure water treatment
+  systems.
+\newblock In Proceedings of the Critical Information Infrastructures Security
+  (CRITIS 2016). Springer,  2017, Vol. 10242, {\em Lecture Notes in Computer
+  Science}, pp. 88--99.
+
+\bibitem[Ahmed et~al.(2017)Ahmed, Palleti, and Mathur]{ahmed2017wadi}
+Ahmed, C.M.; Palleti, V.R.; Mathur, A.P.
+\newblock {WADI}: A water distribution testbed for research in the design of
+  secure cyber physical systems.
+\newblock In Proceedings of the Proceedings of the 3rd International Workshop
+  on Cyber-Physical Systems for Smart Water Networks,  2017, pp. 25--28.
+
+\bibitem[Shin et~al.(2021)Shin, Lee, Yun, and Min]{shin2021hai}
+Shin, H.K.; Lee, W.; Yun, J.H.; Min, B.G.
+\newblock Two {ICS} security datasets and anomaly detection contest on the
+  {HIL}-based augmented {ICS} testbed.
+\newblock In Proceedings of the Cyber Security Experimentation and Test
+  Workshop (CSET '21),  2021, pp. 36--40.
+
+\bibitem[Hundman et~al.(2018)Hundman, Constantinou, Laporte, Colwell, and
+  Soderstrom]{hundman2018smap}
+Hundman, K.; Constantinou, V.; Laporte, C.; Colwell, I.; Soderstrom, T.
+\newblock Detecting spacecraft anomalies using {LSTMs} and nonparametric
+  dynamic thresholding.
+\newblock In Proceedings of the Proceedings of the 24th ACM SIGKDD
+  International Conference on Knowledge Discovery \& Data Mining,  2018, pp.
+  387--395.
+\newblock {\url{https://doi.org/10.1145/3219819.3219845}}.
+
+\bibitem[Yue et~al.(2023)Yue, Li, Chen, Chen, and Li]{yue2023incremental}
+Yue, K.; Li, J.; Chen, Z.; Chen, J.; Li, W.
+\newblock An emerging fault diagnosis framework with incremental meta-learning
+  for rotating machinery.
+\newblock In Proceedings of the 2023 International Conference on Sensing,
+  Measurement \& Data Analytics in the era of Artificial Intelligence (ICSMD),
+  2023, pp. 1--6.
+\newblock {\url{https://doi.org/10.1109/ICSMD60522.2023.10490806}}.
+
+\bibitem[Pu et~al.(2024)Pu, Yan, Bai, Cabrera, and Li]{pu2024fseocl}
+Pu, Z.; Yan, L.; Bai, Y.; Cabrera, D.; Li, C.
+\newblock Incrementally generative adversarial diagnostics using few-shot
+  enabled one-class learning.
+\newblock {\em IEEE Transactions on Industrial Informatics} {\bf 2024}, {\em
+  20},~12189--12199.
+\newblock {\url{https://doi.org/10.1109/TII.2024.3416945}}.
+
+\bibitem[Du et~al.(2024)Du, Gu, Wang, Wang, and Jia]{du2024fscil}
+Du, L.; Gu, Z.; Wang, Y.; Wang, L.; Jia, Y.
+\newblock A few-shot class-incremental learning method for network intrusion
+  detection.
+\newblock {\em IEEE Transactions on Network and Service Management} {\bf 2024},
+  {\em 21},~2389--2401.
+\newblock {\url{https://doi.org/10.1109/TNSM.2023.3332284}}.
+
+\bibitem[Tuli et~al.(2022)Tuli, Casale, and Jennings]{tuli2022tranad}
+Tuli, S.; Casale, G.; Jennings, N.R.
+\newblock {TranAD}: Deep transformer networks for anomaly detection in
+  multivariate time series data.
+\newblock {\em Proceedings of the VLDB Endowment} {\bf 2022}, {\em
+  15},~1201--1214.
+\newblock {\url{https://doi.org/10.14778/3514061.3514067}}.
+
+\bibitem[Xu et~al.(2025)Xu, Yang, Zhao, Lv, and Sun]{xu2025swat}
+Xu, R.; Yang, B.; Zhao, D.; Lv, F.; Sun, R.
+\newblock Cyber attack detection for industrial control systems with few-shot
+  and class imbalance: An improved {DA-LSTM-UNet} scheme.
+\newblock In Proceedings of the 2025 10th International Conference on Control,
+  Robotics and Cybernetics (CRC),  2025, pp. 217--221.
+\newblock {\url{https://doi.org/10.1109/CRC67523.2025.11288189}}.
+
+\bibitem[Zhang et~al.(2020)Zhang, Ye, Wang, and Habetler]{zhang2020maml}
+Zhang, S.; Ye, F.; Wang, B.; Habetler, T.G.
+\newblock Few-shot bearing anomaly detection based on model-agnostic
+  meta-learning.
+\newblock In Proceedings of the 2020 23rd International Conference on
+  Electrical Machines and Systems (ICEMS),  2020, pp. 1341--1346.
+\newblock {\url{https://doi.org/10.23919/ICEMS50442.2020.9291099}}.
+
+\bibitem[Zhou et~al.(2021)Zhou, Liang, Shimizu, Ma, and Jin]{zhou2021siamese}
+Zhou, X.; Liang, W.; Shimizu, S.; Ma, J.; Jin, Q.
+\newblock Siamese neural network based few-shot learning for anomaly detection
+  in industrial cyber-physical systems.
+\newblock {\em IEEE Transactions on Industrial Informatics} {\bf 2021}, {\em
+  17},~5790--5798.
+\newblock {\url{https://doi.org/10.1109/TII.2020.3047675}}.
+
+\bibitem[Chen et~al.(2023)Chen, Hu, Cao, Zhang, Chen, and
+  Blaabjerg]{chen2023metabearing}
+Chen, J.; Hu, W.; Cao, D.; Zhang, Z.; Chen, Z.; Blaabjerg, F.
+\newblock A meta-learning method for electric machine bearing fault diagnosis
+  under varying working conditions with limited data.
+\newblock {\em IEEE Transactions on Industrial Informatics} {\bf 2023}, {\em
+  19},~2552--2564.
+\newblock {\url{https://doi.org/10.1109/TII.2022.3165027}}.
+
+\bibitem[Li et~al.(2024)Li, Shang, and Ye]{li2024rrpn}
+Li, K.; Shang, C.; Ye, H.
+\newblock Reweighted regularized prototypical network for few-shot fault
+  diagnosis.
+\newblock {\em IEEE Transactions on Neural Networks and Learning Systems} {\bf
+  2024}, {\em 35},~6206--6217.
+\newblock {\url{https://doi.org/10.1109/TNNLS.2022.3232394}}.
+
+\bibitem[Kim et~al.(2022)Kim, Choi, Choi, Lee, and Yoon]{kim2022rigorous}
+Kim, S.; Choi, K.; Choi, H.S.; Lee, B.; Yoon, S.
+\newblock Towards a rigorous evaluation of time-series anomaly detection.
+\newblock In Proceedings of the Proceedings of the AAAI Conference on
+  Artificial Intelligence,  2022, Vol.~36, pp. 7194--7201.
+\newblock {\url{https://doi.org/10.1609/aaai.v36i7.20680}}.
+
+\bibitem[Garg et~al.(2022)Garg, Zhang, Samaran, Savitha, and
+  Foo]{garg2022evaluation}
+Garg, A.; Zhang, W.; Samaran, J.; Savitha, R.; Foo, C.S.
+\newblock An evaluation of anomaly detection and diagnosis in multivariate time
+  series.
+\newblock {\em IEEE Transactions on Neural Networks and Learning Systems} {\bf
+  2022}, {\em 33},~2508--2517.
+\newblock {\url{https://doi.org/10.1109/TNNLS.2021.3105827}}.
+
+\bibitem[Wu and Keogh(2023)]{wu2023flawed}
+Wu, R.; Keogh, E.J.
+\newblock Current time series anomaly detection benchmarks are flawed and are
+  creating the illusion of progress.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering} {\bf 2023},
+  {\em 35},~2421--2429.
+\newblock {\url{https://doi.org/10.1109/TKDE.2021.3112126}}.
+
+\bibitem[Siffer et~al.(2017)Siffer, Fouque, Termier, and
+  Largouet]{siffer2017pot}
+Siffer, A.; Fouque, P.A.; Termier, A.; Largouet, C.
+\newblock Anomaly detection in streams with extreme value theory.
+\newblock In Proceedings of the Proceedings of the 23rd ACM SIGKDD
+  International Conference on Knowledge Discovery and Data Mining,  2017, pp.
+  1067--1075.
+
+\bibitem[Bach and Maloof(2008)]{bach2008paired}
+Bach, S.H.; Maloof, M.A.
+\newblock Paired learners for concept drift.
+\newblock In Proceedings of the 2008 Eighth IEEE International Conference on
+  Data Mining,  2008, pp. 23--32.
+
+\bibitem[Su et~al.(2019)Su, Zhao, Niu, Liu, Sun, and Pei]{su2019omnianomaly}
+Su, Y.; Zhao, Y.; Niu, C.; Liu, R.; Sun, W.; Pei, D.
+\newblock Robust anomaly detection for multivariate time series through
+  stochastic recurrent neural network.
+\newblock In Proceedings of the Proceedings of the 25th ACM SIGKDD
+  International Conference on Knowledge Discovery \& Data Mining,  2019, pp.
+  2828--2837.
+\newblock {\url{https://doi.org/10.1145/3292500.3330672}}.
+
+\bibitem[Katser and Kozitsin(2020)]{katser2020skab}
+Katser, I.D.; Kozitsin, V.O.
+\newblock Skoltech Anomaly Benchmark ({SKAB}).
+\newblock \url{https://github.com/waico/SKAB},  2020.
+\newblock {\url{https://doi.org/10.34740/kaggle/dsv/1693952}}.
+
+\bibitem[Abdulaal et~al.(2021)Abdulaal, Liu, and Lancewicki]{abdulaal2021psm}
+Abdulaal, A.; Liu, Z.; Lancewicki, T.
+\newblock Practical approach to asynchronous multivariate time series anomaly
+  detection and localization.
+\newblock In Proceedings of the Proceedings of the 27th ACM SIGKDD Conference
+  on Knowledge Discovery \& Data Mining,  2021, pp. 2485--2494.
+\newblock {\url{https://doi.org/10.1145/3447548.3467174}}.
+
+\bibitem[Liu et~al.(2008)Liu, Ting, and Zhou]{liu2008iforest}
+Liu, F.T.; Ting, K.M.; Zhou, Z.H.
+\newblock Isolation forest.
+\newblock In Proceedings of the 2008 Eighth IEEE International Conference on
+  Data Mining,  2008, pp. 413--422.
+\newblock {\url{https://doi.org/10.1109/ICDM.2008.17}}.
+
+\end{thebibliography}

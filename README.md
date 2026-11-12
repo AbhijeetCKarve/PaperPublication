@@ -16,5 +16,6 @@ backs the first paper.
 
 Build a manuscript with `bash paper/build.sh` or `bash paper2/build.sh`. `bash paper/build_mdpi.sh` assembles the
 version of Paper 1 prepared for *Machine Learning and Knowledge Extraction* (MDPI front and back matter,
-MDPI reference style, cover letter).
+MDPI reference style, cover letter). `bash paper/build_latex.sh` typesets the same manuscript with MDPI's
+official LaTeX class (`paper/latex/`, TeX Live required) and packs `paper/manuscript_make_latex.zip` for upload.
 (pandoc, the IEEE CSL file in the folder, and a Chromium binary for the PDF).

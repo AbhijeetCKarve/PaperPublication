@@ -1,0 +1,86 @@
+%% Manuscript for Machine Learning and Knowledge Extraction, built on the MDPI class (template v6.5e).
+\documentclass[make,article,submit,moreauthors]{Definitions/mdpi}
+
+% MDPI internal commands - do not modify
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2026}
+\copyrightyear{2026}
+\datereceived{ }
+\daterevised{ }
+\dateaccepted{ }
+\datepublished{ }
+
+% packages beyond the class: pandoc tables
+\usepackage{longtable}
+\setkeys{Gin}{keepaspectratio}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+
+\Title{Drift-Aware Meta-Adaptive Anomaly Detection for Few-Shot, Non-Stationary Industrial IoT Streams: A Benchmarking Protocol and the DAMAD Detector}
+
+\Author{Abhijeet Chandrakant Karve \textsuperscript{1,}* and Santosh Darade \textsuperscript{1}}
+\AuthorNames{Abhijeet Chandrakant Karve and Santosh Darade}
+
+\address[1]{%
+\textsuperscript{1} \quad Department of Computer Science and Engineering, MIT Art, Design and Technology University, Pune, India}
+
+\corres{Correspondence: ackarve11@gmail.com}
+
+\abstract{Industrial sensor streams have to be watched for faults with few labelled examples, under distributions that keep shifting, and with new fault types appearing after deployment. A systematic review of 66 papers (2020--2025) found no method that joins meta-learning with online adaptation on a non-stationary stream and is tested on an industrial benchmark. We close that gap in three steps: a four-dimensional taxonomy with a benchmarking protocol with point-wise metrics, controlled drift injection and three streaming measures; DAMAD, a drift-aware meta-adaptive detector that pairs a MAML++-initialised variational autoencoder with a residual-side drift gate, regime replay, a gated extreme-value threshold and a champion/challenger acceptance test; and an evaluation against eight baselines on eight public industrial and telemetry benchmarks over five seeds, four drift patterns and ten ablations, 19,650 streaming runs. Without drift, a static autoencoder matches the meta-learned detectors on six of the eight datasets. Under drift, static and adapt-once detectors alarm on 73 to 87\% of normal steps and never recover; DAMAD holds the rate at 17 to 30\%, recovers within 230 to 440 windows and has the best pooled F1 under every pattern. Threshold recalibration and the residual-side gate carry the result; the choice of meta-learner is secondary.}
+
+\keyword{meta-learning; few-shot learning; anomaly detection; industrial Internet of Things; concept drift; streaming data; variational autoencoder; benchmarking}
+
+\begin{document}
+
+\input{body}
+
+\vspace{6pt}
+
+\supplementary{The following supporting information is submitted with the manuscript: Table S1, the 66 papers of the systematic review in Section 3 with their codes on the four taxonomy axes.}
+
+\authorcontributions{Conceptualization, A.C.K. and S.D.; methodology, A.C.K.; software, A.C.K.; validation, A.C.K.; formal analysis, A.C.K.; investigation, A.C.K.; data curation, A.C.K.; writing---original draft preparation, A.C.K.; writing---review and editing, S.D.; visualization, A.C.K.; supervision, S.D.; project administration, S.D. All authors have read and agreed to the published version of the manuscript.}
+
+\funding{This research received no external funding.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{The implementation, the dataset loaders, the experiment runner, the screening sheet of the review and every result table are available at \url{https://github.com/AbhijeetCKarve/PaperPublication}. HAI 21.03, SMD, SKAB, PSM, SMAP and MSL are public datasets and the loaders fetch or read them. SWaT and WADI are available from iTrust, Singapore University of Technology and Design, under its data-use agreement, and cannot be redistributed by the authors.}
+
+\acknowledgments{The authors thank iTrust, Centre for Research in Cyber Security at the Singapore University of Technology and Design, for access to the SWaT and WADI recordings. During the preparation of this work the authors used Claude, an AI assistant by Anthropic, to help draft and edit the text and to write and refactor the experiment code, as described in Section 6.3. The authors reviewed and verified all content and take full responsibility for it.}
+
+\conflictsofinterest{The authors declare no conflicts of interest.}
+
+\abbreviations{Abbreviations}{%
+The following abbreviations are used in this manuscript:\\
+
+\noindent
+\begin{tabular}{@{}ll}
+AD & Anomaly detection\\
+ADWIN & Adaptive windowing\\
+AUROC & Area under the receiver operating characteristic curve\\
+DAMAD & Drift-Aware Meta-Adaptive Detector\\
+ELBO & Evidence lower bound\\
+FPR & False-positive rate\\
+IIoT & Industrial Internet of Things\\
+MAML & Model-agnostic meta-learning\\
+MMD & Maximum mean discrepancy\\
+POT & Peaks over threshold\\
+VAE & Variational autoencoder
+\end{tabular}
+}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\reftitle{References}
+\bibliography{references}
+\PublishersNote{}
+\end{adjustwidth}
+\end{document}
