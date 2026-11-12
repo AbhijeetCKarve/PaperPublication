@@ -127,7 +127,7 @@ class SVG:
         path.write_text("\n".join(self.parts), encoding="utf-8")
 
 
-def render_png(svg: Path, png: Path, w: int, h: int, scale: float = 2.0):
+def render_png(svg: Path, png: Path, w: int, h: int, scale: float = 4.0):
     chrome = sorted(Path("/opt/pw-browsers").glob("chromium-*/chrome-linux*/chrome"))
     if not chrome:
         print("chromium not found; SVG only")

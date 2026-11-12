@@ -28,7 +28,7 @@ FIG = Path("figures")
 FIG.mkdir(exist_ok=True)
 
 plt.rcParams.update({"font.size": 9, "font.family": "DejaVu Sans", "axes.spines.top": False, "axes.spines.right": False,
-                     "figure.dpi": 150, "savefig.dpi": 300, "savefig.bbox": "tight"})
+                     "figure.dpi": 150, "savefig.dpi": 600, "savefig.bbox": "tight"})
 C = {"VAE-S": "#8c8c8c", "VAE-FT": "#b5b5b5", "VAE-INC": "#d4a017", "VAE-DFT": "#1f77b4", "MAML-1": "#2ca02c",
      "MSGD-1": "#98df8a", "OML-A": "#9467bd", "DAMAD": "#d62728", "IF": "#c7c7c7"}
 DL = {"skab": "SKAB", "smd": "SMD", "psm": "PSM", "hai": "HAI", "swat": "SWaT", "wadi": "WADI", "smap": "SMAP", "msl": "MSL"}

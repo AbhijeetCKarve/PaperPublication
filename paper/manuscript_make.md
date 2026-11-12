@@ -2,7 +2,7 @@
 title: "Drift-Aware Meta-Adaptive Anomaly Detection for Few-Shot, Non-Stationary Industrial IoT Streams: A Benchmarking Protocol and the DAMAD Detector"
 author:
   - "Abhijeet Chandrakant Karve ^1,^\\* and Santosh Darade ^1^"
-  - "^1^ Department of Computer Science and Engineering, MIT Art, Design and Technology University, Pune, India"
+  - "^1^ Department of Computer Science and Engineering, MIT Art, Design and Technology University, Rajbaug, Loni Kalbhor, Pune 412201, Maharashtra, India"
   - "\\* Correspondence: ackarve11@gmail.com"
 date: ""
 bibliography: references.bib
@@ -10,7 +10,7 @@ csl: mdpi.csl
 link-citations: true
 ---
 
-**Abstract:** Industrial sensor streams have to be watched for faults with few labelled examples, under distributions that keep shifting, and with new fault types appearing after deployment. A systematic review of 66 papers (2020–2025) found no method that joins meta-learning with online adaptation on a non-stationary stream and is tested on an industrial benchmark. We close that gap in three steps: a four-dimensional taxonomy with a benchmarking protocol with point-wise metrics, controlled drift injection and three streaming measures; DAMAD, a drift-aware meta-adaptive detector that pairs a MAML++-initialised variational autoencoder with a residual-side drift gate, regime replay, a gated extreme-value threshold and a champion/challenger acceptance test; and an evaluation against eight baselines on eight public industrial and telemetry benchmarks over five seeds, four drift patterns and ten ablations, 19,650 streaming runs. Without drift, a static autoencoder matches the meta-learned detectors on six of the eight datasets. Under drift, static and adapt-once detectors alarm on 73 to 87 % of normal steps and never recover; DAMAD holds the rate at 17 to 30 %, recovers within 230 to 440 windows and has the best pooled F1 under every pattern. Threshold recalibration and the residual-side gate carry the result; the choice of meta-learner is secondary.
+**Abstract:** Industrial sensor streams must be monitored for faults with few labelled examples, under shifting distributions, and with new fault types appearing after deployment. A systematic review of 66 papers (2020–2025) found no method that joins meta-learning with online adaptation on a non-stationary stream and is tested on an industrial benchmark. We close that gap in three steps: a four-dimensional taxonomy with a benchmarking protocol with point-wise metrics, controlled drift injection and three streaming measures; DAMAD, a drift-aware meta-adaptive detector that pairs a variational autoencoder initialised by model-agnostic meta-learning (MAML++) with a residual-side drift gate, regime replay, a gated extreme-value threshold and a champion/challenger acceptance test; and an evaluation against eight baselines on eight public industrial and telemetry benchmarks over five seeds, four drift patterns and ten ablations, 19,650 streaming runs. Without drift, a static autoencoder matches the meta-learned detectors on six of the eight datasets. Under drift, static and adapt-once detectors alarm on 73 to 87 % of normal steps and never recover; DAMAD holds the rate at 17 to 30 %, recovers within 230 to 440 windows and has the best pooled F1 under every pattern. Threshold recalibration and the residual-side gate carry the result; the choice of meta-learner is secondary.
 
 **Keywords:** meta-learning; few-shot learning; anomaly detection; industrial Internet of Things; concept drift; streaming data; variational autoencoder; benchmarking
 
@@ -222,7 +222,7 @@ In steady state DAMAD does one forward pass per window plus O(log n) ADWIN work 
 
 DAMAD is HYB on D1 (an optimisation-based initialisation with a model-based memory), REC on D2, OMA on D3 because $\theta^*$ itself is updated at deployment time, and IIV on D4 because it is evaluated on SWaT, WADI, HAI, SMAP and MSL in Section 6. To our knowledge it is the first method evaluated in that cell.
 
-# 6 Experimental setup
+# 6 Materials and Methods
 
 ## 6.1 Datasets and entities
 
@@ -243,7 +243,7 @@ Table 5. Datasets. Test lengths are in windows after preprocessing; anomaly rate
 | SMAP | spacecraft telemetry | 25 | 55 (17) | 4.4k--8.6k | 12 % avg. | native |
 | MSL | rover telemetry | 55 | 27 (8) | 1.1k--6.1k | 12 % avg. | native |
 
-## 6.2 Methods
+## 6.2 Compared methods
 
 Every method runs through the same streaming loop and differs only in configuration (Table 6). All VAE-based methods share the architecture of Section 5.2. The static VAE is trained for 1,500 Adam steps on 60,000 pooled normal windows from the meta-training entities. Meta-learners are trained as in Section 5.2 on regimes from the meta-training entities. Isolation Forest uses 100 trees on 20,000 pooled windows. Every method calibrates its threshold with the same POT procedure on the same warm-up windows.
 
@@ -283,7 +283,7 @@ Table 7. Ablations.
 
 Each held-out entity of HAI, SMD, PSM, SWaT, WADI, SMAP and MSL is run under five stream conditions: its original test stream and the four injected-drift versions of Table 4. SKAB runs are about a thousand windows long, which is not enough to hold a 100-window calibration, a 200-window shadow period and a refractory period between two injected changes, so SKAB is used for the few-shot cold-start setting only. Ablations are scored under the drift conditions. The few-shot sweep (K = 1, 5, 10) is run on the original streams for the methods that adapt at the start; all drift conditions use K = 5. Metrics are those of Table 4. Detection latency is averaged over anomaly segments in which an alarm occurred, and the share of segments with any alarm is reported next to it. Adaptation steps use a rolling window of 100 steps and are capped at the length of the post-change segment if the rate never recovers.
 
-Everything is implemented in PyTorch 2 and NumPy and runs on CPU; one seed of the whole study takes about an hour per dataset on a four-core machine with one thread per job. Reported timings come from that machine. Five seeds change the network initialisation, the episode sampling, the drift realisation and the entity split. An AI assistant (Claude, Anthropic) was used while writing the experiment code and the manuscript text; the authors designed the study, tested the code, ran every experiment and checked every number against the raw run logs, and all results in this paper are regenerated from the released configuration files.
+Everything is implemented in Python 3.13 with PyTorch 2.14, NumPy 2.5, SciPy 1.18, scikit-learn 1.9 and pandas 3.0, and runs on CPU; one seed of the whole study takes about an hour per dataset on a four-core machine with one thread per job. Reported timings come from that machine. Five seeds change the network initialisation, the episode sampling, the drift realisation and the entity split. An AI assistant (Claude, Anthropic) was used while writing the experiment code and the manuscript text; the authors designed the study, tested the code, ran every experiment and checked every number against the raw run logs, and all results in this paper are regenerated from the released configuration files.
 
 
 # 7 Results
@@ -492,7 +492,7 @@ Replay turned out to be the least reliable module. It lowers the false-alarm rat
 
 Internal validity rests on every method running through the same loop with the same threshold procedure, the same warm-up and the same streams; we checked that by making each method a configuration rather than a separate implementation. External validity is limited by the eight datasets, all of them public benchmarks rather than live plants, and by the synthetic drift. Construct validity of the streaming metrics is the main risk: adaptation steps depend on the rolling window and the margin, and detection latency is only defined for detected segments, which is why the detection rate is reported with it.
 
-# 9 Conclusion
+# 9 Conclusions
 
 We set out to find a method that is few-shot capable, drift-aware and deployable online for industrial sensor streams, found none in 66 papers, and built one. The review and taxonomy locate the gap; the protocol says how a method in that gap should be measured; DAMAD shows that the gap can be filled with existing parts, provided three things are done that the parts do not do on their own: watch the residual rather than the input, keep the threshold still except after a confirmed change, and let the old model contest every adaptation. On eight benchmarks, including the two water testbeds the field treats as its reference, that is enough to keep the alarm stream meaningful after a change where every static or adapt-once detector stops being useful; it is not enough to match their detection latency, and on telemetry channels the base learner, not the adaptation policy, is the limit. The remaining distance to a production system is in robust threshold calibration under contamination and in the latency cost of recalibration, and the released code is arranged so that either can be worked on by changing one configuration.
 
@@ -506,7 +506,7 @@ We set out to find a method that is few-shot capable, drift-aware and deployable
 
 **Informed Consent Statement:** Not applicable.
 
-**Data Availability Statement:** The implementation, the dataset loaders, the experiment runner, the screening sheet of the review and every result table are available at https://github.com/AbhijeetCKarve/PaperPublication. HAI 21.03, SMD, SKAB, PSM, SMAP and MSL are public datasets and the loaders fetch or read them. SWaT and WADI are available from iTrust, Singapore University of Technology and Design, under its data-use agreement, and cannot be redistributed by the authors.
+**Data Availability Statement:** The code, dataset loaders, experiment runner, screening sheet of the review and every result table presented in this study are openly available at https://github.com/AbhijeetCKarve/PaperPublication. HAI 21.03, SMD, SKAB, PSM, SMAP and MSL are publicly available datasets and the loaders fetch or read them from their original sources. Restrictions apply to the availability of the SWaT and WADI data: they were obtained from iTrust, Centre for Research in Cyber Security, Singapore University of Technology and Design, and are available from iTrust with its permission under its data-use agreement.
 
 **Acknowledgments:** The authors thank iTrust, Centre for Research in Cyber Security at the Singapore University of Technology and Design, for access to the SWaT and WADI recordings. During the preparation of this work the authors used Claude, an AI assistant by Anthropic, to help draft and edit the text and to write and refactor the experiment code, as described in Section 6.3. The authors reviewed and verified all content and take full responsibility for it.
 

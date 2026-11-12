@@ -3,7 +3,7 @@ title: "Drift-aware meta-adaptive anomaly detection for few-shot, non-stationary
 author:
   - Abhijeet Chandrakant Karve^1^ (corresponding author, ackarve11@gmail.com)
   - Santosh Darade^1^
-  - ^1^Department of Computer Science and Engineering, MIT Art, Design and Technology University, Pune, India
+  - ^1^Department of Computer Science and Engineering, MIT Art, Design and Technology University, Rajbaug, Loni Kalbhor, Pune 412201, Maharashtra, India
 date: ""
 bibliography: references.bib
 csl: ieee.csl
@@ -224,7 +224,7 @@ In steady state DAMAD does one forward pass per window plus O(log n) ADWIN work 
 
 DAMAD is HYB on D1 (an optimisation-based initialisation with a model-based memory), REC on D2, OMA on D3 because $\theta^*$ itself is updated at deployment time, and IIV on D4 because it is evaluated on SWaT, WADI, HAI, SMAP and MSL in Section 6. To our knowledge it is the first method evaluated in that cell.
 
-# 6 Experimental setup
+# 6 Materials and Methods
 
 ## 6.1 Datasets and entities
 
@@ -245,7 +245,7 @@ Table 5. Datasets. Test lengths are in windows after preprocessing; anomaly rate
 | SMAP | spacecraft telemetry | 25 | 55 (17) | 4.4k--8.6k | 12 % avg. | native |
 | MSL | rover telemetry | 55 | 27 (8) | 1.1k--6.1k | 12 % avg. | native |
 
-## 6.2 Methods
+## 6.2 Compared methods
 
 Every method runs through the same streaming loop and differs only in configuration (Table 6). All VAE-based methods share the architecture of Section 5.2. The static VAE is trained for 1,500 Adam steps on 60,000 pooled normal windows from the meta-training entities. Meta-learners are trained as in Section 5.2 on regimes from the meta-training entities. Isolation Forest uses 100 trees on 20,000 pooled windows. Every method calibrates its threshold with the same POT procedure on the same warm-up windows.
 
@@ -285,4 +285,4 @@ Table 7. Ablations.
 
 Each held-out entity of HAI, SMD, PSM, SWaT, WADI, SMAP and MSL is run under five stream conditions: its original test stream and the four injected-drift versions of Table 4. SKAB runs are about a thousand windows long, which is not enough to hold a 100-window calibration, a 200-window shadow period and a refractory period between two injected changes, so SKAB is used for the few-shot cold-start setting only. Ablations are scored under the drift conditions. The few-shot sweep (K = 1, 5, 10) is run on the original streams for the methods that adapt at the start; all drift conditions use K = 5. Metrics are those of Table 4. Detection latency is averaged over anomaly segments in which an alarm occurred, and the share of segments with any alarm is reported next to it. Adaptation steps use a rolling window of 100 steps and are capped at the length of the post-change segment if the rate never recovers.
 
-Everything is implemented in PyTorch 2 and NumPy and runs on CPU; one seed of the whole study takes about an hour per dataset on a four-core machine with one thread per job. Reported timings come from that machine. Five seeds change the network initialisation, the episode sampling, the drift realisation and the entity split. An AI assistant (Claude, Anthropic) was used while writing the experiment code and the manuscript text; the authors designed the study, tested the code, ran every experiment and checked every number against the raw run logs, and all results in this paper are regenerated from the released configuration files.
+Everything is implemented in Python 3.13 with PyTorch 2.14, NumPy 2.5, SciPy 1.18, scikit-learn 1.9 and pandas 3.0, and runs on CPU; one seed of the whole study takes about an hour per dataset on a four-core machine with one thread per job. Reported timings come from that machine. Five seeds change the network initialisation, the episode sampling, the drift realisation and the entity split. An AI assistant (Claude, Anthropic) was used while writing the experiment code and the manuscript text; the authors designed the study, tested the code, ran every experiment and checked every number against the raw run logs, and all results in this paper are regenerated from the released configuration files.

@@ -89,6 +89,6 @@ ax.text(3, len(D1) - 0.62, "empty", ha="center", color="#C0392B", fontsize=9)
 for s in ["top", "right"]:
     ax.spines[s].set_visible(False)
 fig.tight_layout()
-fig.savefig(ROOT / "figures" / "fig_gapmap.png", dpi=200)
+fig.savefig(ROOT / "figures" / "fig_gapmap.png", dpi=600)
 fig.savefig(ROOT / "figures" / "fig_gapmap.pdf")
 print("wrote corpus_table.md, review_counts.json, figures/fig_gapmap.png")

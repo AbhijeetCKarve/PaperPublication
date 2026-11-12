@@ -9,7 +9,7 @@
 
 **Informed Consent Statement:** Not applicable.
 
-**Data Availability Statement:** The implementation, the dataset loaders, the experiment runner, the screening sheet of the review and every result table are available at https://github.com/AbhijeetCKarve/PaperPublication. HAI 21.03, SMD, SKAB, PSM, SMAP and MSL are public datasets and the loaders fetch or read them. SWaT and WADI are available from iTrust, Singapore University of Technology and Design, under its data-use agreement, and cannot be redistributed by the authors.
+**Data Availability Statement:** The code, dataset loaders, experiment runner, screening sheet of the review and every result table presented in this study are openly available at https://github.com/AbhijeetCKarve/PaperPublication. HAI 21.03, SMD, SKAB, PSM, SMAP and MSL are publicly available datasets and the loaders fetch or read them from their original sources. Restrictions apply to the availability of the SWaT and WADI data: they were obtained from iTrust, Centre for Research in Cyber Security, Singapore University of Technology and Design, and are available from iTrust with its permission under its data-use agreement.
 
 **Acknowledgments:** The authors thank iTrust, Centre for Research in Cyber Security at the Singapore University of Technology and Design, for access to the SWaT and WADI recordings. During the preparation of this work the authors used Claude, an AI assistant by Anthropic, to help draft and edit the text and to write and refactor the experiment code, as described in Section 6.3. The authors reviewed and verified all content and take full responsibility for it.
 
