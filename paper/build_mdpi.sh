@@ -60,5 +60,6 @@ if [ -n "$CHROME" ]; then
     --print-to-pdf=manuscript_make.pdf "file://$(pwd)/manuscript_make.html" 2>/dev/null
 fi
 pandoc cover_letter_make.md -o cover_letter_make.docx
+python3 set_metadata.py
 wc -w manuscript_make.md
 ls -la manuscript_make.docx manuscript_make.pdf cover_letter_make.docx 2>/dev/null || true
