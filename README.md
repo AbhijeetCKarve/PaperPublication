@@ -14,5 +14,7 @@ backs the first paper.
 | `figures/` | All figures used in the manuscripts |
 | `review/` | PRISMA-style review: raw IEEE Xplore and Lens.org exports, merge and screening scripts, decisions, corpus table |
 
-Build a manuscript with `bash paper/build.sh` or `bash paper2/build.sh`
+Build a manuscript with `bash paper/build.sh` or `bash paper2/build.sh`. `bash paper/build_mdpi.sh` assembles the
+version of Paper 1 prepared for *Machine Learning and Knowledge Extraction* (MDPI front and back matter,
+MDPI reference style, cover letter).
 (pandoc, the IEEE CSL file in the folder, and a Chromium binary for the PDF).
