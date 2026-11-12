@@ -285,7 +285,7 @@ Table 7. Ablations.
 
 Each held-out entity of HAI, SMD, PSM, SWaT, WADI, SMAP and MSL is run under five stream conditions: its original test stream and the four injected-drift versions of Table 4. SKAB runs are about a thousand windows long, which is not enough to hold a 100-window calibration, a 200-window shadow period and a refractory period between two injected changes, so SKAB is used for the few-shot cold-start setting only. Ablations are scored under the drift conditions. The few-shot sweep (K = 1, 5, 10) is run on the original streams for the methods that adapt at the start; all drift conditions use K = 5. Metrics are those of Table 4. Detection latency is averaged over anomaly segments in which an alarm occurred, and the share of segments with any alarm is reported next to it. Adaptation steps use a rolling window of 100 steps and are capped at the length of the post-change segment if the rate never recovers.
 
-Everything is implemented in PyTorch 2 and NumPy and runs on CPU; one seed of the whole study takes about an hour per dataset on a four-core machine with one thread per job. Reported timings come from that machine. Five seeds change the network initialisation, the episode sampling, the drift realisation and the entity split.
+Everything is implemented in PyTorch 2 and NumPy and runs on CPU; one seed of the whole study takes about an hour per dataset on a four-core machine with one thread per job. Reported timings come from that machine. Five seeds change the network initialisation, the episode sampling, the drift realisation and the entity split. An AI assistant (Claude, Anthropic) was used while writing the experiment code and the manuscript text; the authors designed the study, tested the code, ran every experiment and checked every number against the raw run logs, and all results in this paper are regenerated from the released configuration files.
 
 # 7 Results
 
@@ -502,4 +502,4 @@ The implementation, the dataset loaders, the experiment runner and every result 
 
 # Declaration {.unnumbered}
 
-The authors have no competing interests to declare, and the work was done without dedicated funding. The SWaT and WADI recordings were supplied by iTrust at the Singapore University of Technology and Design, whose data-use terms we follow.
+The authors have no competing interests to declare, and the work was done without dedicated funding. An AI assistant (Claude, Anthropic) was used to help draft and edit the text and to write the experiment code, as stated in Section 6.3; the authors verified all content and take full responsibility for it. The SWaT and WADI recordings were supplied by iTrust at the Singapore University of Technology and Design, whose data-use terms we follow.

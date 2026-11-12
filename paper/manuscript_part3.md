@@ -52,4 +52,4 @@ The implementation, the dataset loaders, the experiment runner and every result 
 
 # Declaration {.unnumbered}
 
-The authors have no competing interests to declare, and the work was done without dedicated funding. The SWaT and WADI recordings were supplied by iTrust at the Singapore University of Technology and Design, whose data-use terms we follow.
+The authors have no competing interests to declare, and the work was done without dedicated funding. An AI assistant (Claude, Anthropic) was used to help draft and edit the text and to write the experiment code, as stated in Section 6.3; the authors verified all content and take full responsibility for it. The SWaT and WADI recordings were supplied by iTrust at the Singapore University of Technology and Design, whose data-use terms we follow.

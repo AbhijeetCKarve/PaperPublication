@@ -283,7 +283,7 @@ Table 7. Ablations.
 
 Each held-out entity of HAI, SMD, PSM, SWaT, WADI, SMAP and MSL is run under five stream conditions: its original test stream and the four injected-drift versions of Table 4. SKAB runs are about a thousand windows long, which is not enough to hold a 100-window calibration, a 200-window shadow period and a refractory period between two injected changes, so SKAB is used for the few-shot cold-start setting only. Ablations are scored under the drift conditions. The few-shot sweep (K = 1, 5, 10) is run on the original streams for the methods that adapt at the start; all drift conditions use K = 5. Metrics are those of Table 4. Detection latency is averaged over anomaly segments in which an alarm occurred, and the share of segments with any alarm is reported next to it. Adaptation steps use a rolling window of 100 steps and are capped at the length of the post-change segment if the rate never recovers.
 
-Everything is implemented in PyTorch 2 and NumPy and runs on CPU; one seed of the whole study takes about an hour per dataset on a four-core machine with one thread per job. Reported timings come from that machine. Five seeds change the network initialisation, the episode sampling, the drift realisation and the entity split.
+Everything is implemented in PyTorch 2 and NumPy and runs on CPU; one seed of the whole study takes about an hour per dataset on a four-core machine with one thread per job. Reported timings come from that machine. Five seeds change the network initialisation, the episode sampling, the drift realisation and the entity split. An AI assistant (Claude, Anthropic) was used while writing the experiment code and the manuscript text; the authors designed the study, tested the code, ran every experiment and checked every number against the raw run logs, and all results in this paper are regenerated from the released configuration files.
 
 
 # 7 Results
@@ -508,7 +508,7 @@ We set out to find a method that is few-shot capable, drift-aware and deployable
 
 **Data Availability Statement:** The implementation, the dataset loaders, the experiment runner, the screening sheet of the review and every result table are available at https://github.com/AbhijeetCKarve/PaperPublication. HAI 21.03, SMD, SKAB, PSM, SMAP and MSL are public datasets and the loaders fetch or read them. SWaT and WADI are available from iTrust, Singapore University of Technology and Design, under its data-use agreement, and cannot be redistributed by the authors.
 
-**Acknowledgments:** The authors thank iTrust, Centre for Research in Cyber Security at the Singapore University of Technology and Design, for access to the SWaT and WADI recordings.
+**Acknowledgments:** The authors thank iTrust, Centre for Research in Cyber Security at the Singapore University of Technology and Design, for access to the SWaT and WADI recordings. During the preparation of this work the authors used Claude, an AI assistant by Anthropic, to help draft and edit the text and to write and refactor the experiment code, as described in Section 6.3. The authors reviewed and verified all content and take full responsibility for it.
 
 **Conflicts of Interest:** The authors declare no conflicts of interest.
 
