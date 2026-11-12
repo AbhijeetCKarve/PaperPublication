@@ -8,7 +8,7 @@ A fourth point is not in the review, but Section 7.1 makes it clearly enough to 
 
 ## 8.2 What building DAMAD changed
 
-Three decisions in the implemented system differ from our conceptual sketch, and each came from a failure we could see in the traces.
+Three decisions in the implemented system differ from our first design, and each came from a failure we could see in the traces.
 
 The gate moved from the input to the residual. An input-side detector asks whether the world changed; a residual-side detector asks whether the model stopped fitting. Only the second question is the one that should trigger retraining, and on real streams the two questions have very different answers.
 

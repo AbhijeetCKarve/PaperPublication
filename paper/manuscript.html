@@ -90,20 +90,20 @@ autoencoder that adapts in K gradient steps when a regime change is
 confirmed, a regime-indexed memory that replays past regimes during
 meta-updates, a gated extreme-value threshold, and a champion/challenger
 check that undoes an adaptation if the old model turns out to fit the
-following data better. Building it changed two design decisions from our
-earlier conceptual sketch: the drift gate has to watch the model
-residual rather than the raw input, and a change has to be confirmed by
-the gain it brings, otherwise long anomalies masquerade as drift. Third,
-we run DAMAD against eight baselines (Isolation Forest, static,
-fine-tuned, incrementally updated and drift-aware VAEs, MAML and
-Meta-SGD adapted once, and an MMD-triggered meta-adapter) on eight
-benchmarks, SWaT, WADI, HAI 21.03, SMAP, MSL, SMD, SKAB and PSM, over
-five seeds, four drift patterns and ten ablations, 19,650 streaming runs
-in all. Without injected drift, the static VAE is as good as any
-meta-learned detector on six of the eight, and the number of support
-windows makes no difference between one and ten: the initialisation is
-not the bottleneck. SWaT and WADI are the exception, because their
-attack recordings sit at a different operating point from their normal
+following data better. Building it overturned two decisions of our first
+design: the drift gate has to watch the model residual rather than the
+raw input, and a change has to be confirmed by the gain it brings,
+otherwise long anomalies masquerade as drift. Third, we run DAMAD
+against eight baselines (Isolation Forest, static, fine-tuned,
+incrementally updated and drift-aware VAEs, MAML and Meta-SGD adapted
+once, and an MMD-triggered meta-adapter) on eight benchmarks, SWaT,
+WADI, HAI 21.03, SMAP, MSL, SMD, SKAB and PSM, over five seeds, four
+drift patterns and ten ablations, 19,650 streaming runs in all. Without
+injected drift, the static VAE is as good as any meta-learned detector
+on six of the eight, and the number of support windows makes no
+difference between one and ten: the initialisation is not the
+bottleneck. SWaT and WADI are the exception, because their attack
+recordings sit at a different operating point from their normal
 recordings: there the static and adapt-once detectors alarm on 49–74 %
 of normal steps and DAMAD on 4–6 %, with F1 55 against 26 on SWaT. Under
 injected drift the static and adapt-once detectors alarm on 73–87 % of
@@ -152,12 +152,12 @@ found when we reviewed the field systematically is that the
 meta-learning methods are trained offline and never updated, the
 streaming methods do not meta-learn, and almost none of either group is
 evaluated on an established industrial benchmark.</p>
-<p>An earlier version of this work, accepted at PCEMS 2026, reported the
-review and sketched a conceptual architecture for the empty cell of the
-resulting taxonomy. It did not build or evaluate it. This paper does. We
-kept the taxonomy and the review findings, rewrote the protocol around
-what we learned while running it, and report what it took to make the
-architecture work on four public datasets.</p>
+<p>The review identifies the empty cell of the resulting taxonomy; the
+rest of the paper fills it. We started from a design on paper for that
+cell, built it, and found that two of its parts did not survive contact
+with real streams. We report the design that worked, the one that did
+not, and what it took to make the architecture run on eight public
+datasets.</p>
 <p>Five things come out of this work.</p>
 <ol type="1">
 <li>A four-dimensional taxonomy of meta-learning AD methods (paradigm,
@@ -171,8 +171,8 @@ metrics with no point-adjust, three streaming metrics, and a fixed set
 of baselines and ablations (Section 4).</li>
 <li>DAMAD, a working online meta-adaptive detector with four modules
 that each map to one of three sub-problems we identify. Two design
-choices differ from our earlier sketch, and we explain why with evidence
-(Section 5).</li>
+choices changed between the first design and the working system, and we
+explain why with evidence (Section 5).</li>
 <li>An evaluation on SWaT, WADI, HAI 21.03, SMAP, MSL, SMD, SKAB and
 PSM, five seeds, four drift patterns, eight baselines and ten ablations,
 with detection latency, adaptation speed, false-alarm rate under drift
@@ -691,13 +691,12 @@ second is that no reviewed paper reports a streaming metric: how long
 detection takes, how fast the detector recovers after a change, or how
 many false alarms the change itself causes.</p>
 <h2 id="the-protocol">4.3 The protocol</h2>
-<p>Table 4 states the protocol we use in Sections 6 and 7. It differs
-from the version in our PCEMS paper in two respects. The dataset list is
-split into an open tier that anyone can download (HAI, SMD, SKAB, PSM,
-SMAP, MSL) and a licensed tier (SWaT, WADI, obtained under the iTrust
-data-use agreement), and both tiers are reported here. And the drift
-injection is specified exactly, so that every method sees the same
-stream.</p>
+<p>Table 4 states the protocol we use in Sections 6 and 7. Two of its
+choices deserve a word. The dataset list is split into an open tier that
+anyone can download (HAI, SMD, SKAB, PSM, SMAP, MSL) and a licensed tier
+(SWaT, WADI, obtained under the iTrust data-use agreement), and both
+tiers are reported here. And the drift injection is specified exactly,
+so that every method sees the same stream.</p>
 <p>Table 4. The benchmarking protocol.</p>
 <table>
 <colgroup>
@@ -853,7 +852,7 @@ diversity, so the vote is permissive. On SMD this yields 870 regimes
 with a median length of 400 steps from 20 training machines. The
 ablations replace this sampler with fixed chunks of the same median
 length and with regime-free random sampling.</p>
-<p><em>Online gate.</em> Our PCEMS sketch ran ADWIN on the raw input
+<p><em>Online gate.</em> Our first design ran ADWIN on the raw input
 with MMD on the embeddings as a second detector. Neither survived
 contact with real streams in that form. On server and process data the
 input statistics never stop moving, so a gate that fires on input change
@@ -1219,7 +1218,7 @@ boundaries</td>
 </tr>
 <tr class="odd">
 <td>DAMAD+mmd</td>
-<td>residual ADWIN and MMD both as the gate (the PCEMS sketch)</td>
+<td>residual ADWIN and MMD both as the gate (our first design)</td>
 </tr>
 <tr class="even">
 <td>DAMAD-mmd</td>
@@ -2729,8 +2728,8 @@ deployment problem is dominated by what happens in the hours after
 it.</p>
 <h2 id="what-building-damad-changed">8.2 What building DAMAD
 changed</h2>
-<p>Three decisions in the implemented system differ from our conceptual
-sketch, and each came from a failure we could see in the traces.</p>
+<p>Three decisions in the implemented system differ from our first
+design, and each came from a failure we could see in the traces.</p>
 <p>The gate moved from the input to the residual. An input-side detector
 asks whether the world changed; a residual-side detector asks whether
 the model stopped fitting. Only the second question is the one that
@@ -2811,11 +2810,12 @@ datasets. They are reported, not tuned per dataset.</p>
 <p>Internal validity rests on every method running through the same loop
 with the same threshold procedure, the same warm-up and the same
 streams; we checked that by making each method a configuration rather
-than a separate implementation. External validity is limited by the four
-datasets and the synthetic drift. Construct validity of the streaming
-metrics is the main risk: adaptation steps depend on the rolling window
-and the margin, and detection latency is only defined for detected
-segments, which is why the detection rate is reported with it.</p>
+than a separate implementation. External validity is limited by the
+eight datasets, all of them public benchmarks rather than live plants,
+and by the synthetic drift. Construct validity of the streaming metrics
+is the main risk: adaptation steps depend on the rolling window and the
+margin, and detection latency is only defined for detected segments,
+which is why the detection rate is reported with it.</p>
 <h1 id="conclusion">9 Conclusion</h1>
 <p>We set out to find a method that is few-shot capable, drift-aware and
 deployable online for industrial sensor streams, found none in 66

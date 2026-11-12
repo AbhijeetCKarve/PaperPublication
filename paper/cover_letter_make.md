@@ -17,7 +17,7 @@ The paper asks a plain question: when an industrial sensor stream has to be moni
 
 We think the paper suits this journal for two reasons. The contribution is about learning under distribution shift with few examples, which is a machine-learning question rather than a sensing one, and the results are reported in full, including where the method does not help: without drift a static autoencoder is as good as any meta-learned detector on six of the eight datasets, and the gain under drift comes from the threshold and the gate rather than from the meta-learner. Every number in the paper can be regenerated from the released code, loaders and configuration files.
 
-An early conceptual version of the taxonomy and the detector design was presented at the PCEMS 2026 conference. The present manuscript rebuilds the review from the raw database exports, implements the system, reports all experiments for the first time, and revises two design decisions on the basis of that evidence; none of the results has been published before. The manuscript is not under consideration elsewhere, and all authors have approved the submission.
+The manuscript is original work. No part of it, including the review, the protocol and the experiments, has been published or presented before, and it is not under consideration elsewhere. All authors have approved the submission.
 
 Both authors are at MIT Art, Design and Technology University, Pune. We have no conflicts of interest to declare and the work received no external funding.
 

@@ -127,12 +127,12 @@ found when we reviewed the field systematically is that the
 meta-learning methods are trained offline and never updated, the
 streaming methods do not meta-learn, and almost none of either group is
 evaluated on an established industrial benchmark.</p>
-<p>An earlier version of this work, accepted at PCEMS 2026, reported the
-review and sketched a conceptual architecture for the empty cell of the
-resulting taxonomy. It did not build or evaluate it. This paper does. We
-kept the taxonomy and the review findings, rewrote the protocol around
-what we learned while running it, and report what it took to make the
-architecture work on four public datasets.</p>
+<p>The review identifies the empty cell of the resulting taxonomy; the
+rest of the paper fills it. We started from a design on paper for that
+cell, built it, and found that two of its parts did not survive contact
+with real streams. We report the design that worked, the one that did
+not, and what it took to make the architecture run on eight public
+datasets.</p>
 <p>Five things come out of this work.</p>
 <ol type="1">
 <li>A four-dimensional taxonomy of meta-learning AD methods (paradigm,
@@ -146,8 +146,8 @@ metrics with no point-adjust, three streaming metrics, and a fixed set
 of baselines and ablations (Section 4).</li>
 <li>DAMAD, a working online meta-adaptive detector with four modules
 that each map to one of three sub-problems we identify. Two design
-choices differ from our earlier sketch, and we explain why with evidence
-(Section 5).</li>
+choices changed between the first design and the working system, and we
+explain why with evidence (Section 5).</li>
 <li>An evaluation on SWaT, WADI, HAI 21.03, SMAP, MSL, SMD, SKAB and
 PSM, five seeds, four drift patterns, eight baselines and ten ablations,
 with detection latency, adaptation speed, false-alarm rate under drift
@@ -669,13 +669,12 @@ is that no reviewed paper reports a streaming metric: how long detection
 takes, how fast the detector recovers after a change, or how many false
 alarms the change itself causes.</p>
 <h2 id="the-protocol">4.3 The protocol</h2>
-<p>Table 4 states the protocol we use in Sections 6 and 7. It differs
-from the version in our PCEMS paper in two respects. The dataset list is
-split into an open tier that anyone can download (HAI, SMD, SKAB, PSM,
-SMAP, MSL) and a licensed tier (SWaT, WADI, obtained under the iTrust
-data-use agreement), and both tiers are reported here. And the drift
-injection is specified exactly, so that every method sees the same
-stream.</p>
+<p>Table 4 states the protocol we use in Sections 6 and 7. Two of its
+choices deserve a word. The dataset list is split into an open tier that
+anyone can download (HAI, SMD, SKAB, PSM, SMAP, MSL) and a licensed tier
+(SWaT, WADI, obtained under the iTrust data-use agreement), and both
+tiers are reported here. And the drift injection is specified exactly,
+so that every method sees the same stream.</p>
 <p>Table 4. The benchmarking protocol.</p>
 <table>
 <colgroup>
@@ -831,7 +830,7 @@ diversity, so the vote is permissive. On SMD this yields 870 regimes
 with a median length of 400 steps from 20 training machines. The
 ablations replace this sampler with fixed chunks of the same median
 length and with regime-free random sampling.</p>
-<p><em>Online gate.</em> Our PCEMS sketch ran ADWIN on the raw input
+<p><em>Online gate.</em> Our first design ran ADWIN on the raw input
 with MMD on the embeddings as a second detector. Neither survived
 contact with real streams in that form. On server and process data the
 input statistics never stop moving, so a gate that fires on input change
@@ -1201,7 +1200,7 @@ boundaries</td>
 </tr>
 <tr class="odd">
 <td>DAMAD+mmd</td>
-<td>residual ADWIN and MMD both as the gate (the PCEMS sketch)</td>
+<td>residual ADWIN and MMD both as the gate (our first design)</td>
 </tr>
 <tr class="even">
 <td>DAMAD-mmd</td>
@@ -2711,8 +2710,8 @@ deployment problem is dominated by what happens in the hours after
 it.</p>
 <h2 id="what-building-damad-changed">8.2 What building DAMAD
 changed</h2>
-<p>Three decisions in the implemented system differ from our conceptual
-sketch, and each came from a failure we could see in the traces.</p>
+<p>Three decisions in the implemented system differ from our first
+design, and each came from a failure we could see in the traces.</p>
 <p>The gate moved from the input to the residual. An input-side detector
 asks whether the world changed; a residual-side detector asks whether
 the model stopped fitting. Only the second question is the one that

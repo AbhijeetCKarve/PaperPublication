@@ -24,7 +24,7 @@ Ablations:
   DAMAD-noM3   no replay from the regime memory
   DAMAD-noM4   no threshold recalibration
   DAMAD-noAcc  no acceptance test on adaptations (SP3 disambiguation off)
-  DAMAD+mmd    ADWIN and MMD both as the gate (the PCEMS sketch)
+  DAMAD+mmd    ADWIN and MMD both as the gate (the first design)
   DAMAD-mmd    MMD only as the gate
   DAMAD-fo     FOMAML initialisation instead of MAML++
   DAMAD-msgd   Meta-SGD initialisation instead of MAML++

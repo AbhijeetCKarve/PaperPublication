@@ -22,13 +22,13 @@ The numbers rely on three assumptions that an IIoT deployment rarely satisfies a
 
 Meta-learning is the natural starting point for the few-shot side. Train one learner across many tasks instead of one, and what comes out is an initialisation, an embedding or a memory that fits a fresh task from a handful of examples [@finn2017maml; @snell2017proto; @hospedales2022meta]. Treating each operating regime, or each fault type, as a task makes the application to IIoT straightforward in principle. A few papers have done exactly that [@moon2023mavae; @feng2024metauad; @tian2024omlog]. What we found when we reviewed the field systematically is that the meta-learning methods are trained offline and never updated, the streaming methods do not meta-learn, and almost none of either group is evaluated on an established industrial benchmark.
 
-An earlier version of this work, accepted at PCEMS 2026, reported the review and sketched a conceptual architecture for the empty cell of the resulting taxonomy. It did not build or evaluate it. This paper does. We kept the taxonomy and the review findings, rewrote the protocol around what we learned while running it, and report what it took to make the architecture work on four public datasets.
+The review identifies the empty cell of the resulting taxonomy; the rest of the paper fills it. We started from a design on paper for that cell, built it, and found that two of its parts did not survive contact with real streams. We report the design that worked, the one that did not, and what it took to make the architecture run on eight public datasets.
 
 Five things come out of this work.
 
 1. A four-dimensional taxonomy of meta-learning AD methods (paradigm, detection mechanism, streaming capability, industrial validation) grounded in a PRISMA-style review of 66 papers, and a gap map showing that the online meta-adaptive column of that taxonomy is empty (Section 3).
 2. A benchmarking protocol for this class of methods: open datasets, synthetic drift injected at known change points, strictly point-wise metrics with no point-adjust, three streaming metrics, and a fixed set of baselines and ablations (Section 4).
-3. DAMAD, a working online meta-adaptive detector with four modules that each map to one of three sub-problems we identify. Two design choices differ from our earlier sketch, and we explain why with evidence (Section 5).
+3. DAMAD, a working online meta-adaptive detector with four modules that each map to one of three sub-problems we identify. Two design choices changed between the first design and the working system, and we explain why with evidence (Section 5).
 4. An evaluation on SWaT, WADI, HAI 21.03, SMAP, MSL, SMD, SKAB and PSM, five seeds, four drift patterns, eight baselines and ten ablations, with detection latency, adaptation speed, false-alarm rate under drift and computational cost reported alongside F1 and AUROC (Sections 6 and 7). The results are not uniformly in the method's favour, and we report where they are not.
 5. An open implementation in which every method, baseline and ablation is a configuration of one streaming loop, so the comparison is like for like.
 
@@ -160,7 +160,7 @@ Two evaluation practices make cross-paper comparison unreliable. The first is po
 
 ## 4.3 The protocol
 
-Table 4 states the protocol we use in Sections 6 and 7. It differs from the version in our PCEMS paper in two respects. The dataset list is split into an open tier that anyone can download (HAI, SMD, SKAB, PSM, SMAP, MSL) and a licensed tier (SWaT, WADI, obtained under the iTrust data-use agreement), and both tiers are reported here. And the drift injection is specified exactly, so that every method sees the same stream.
+Table 4 states the protocol we use in Sections 6 and 7. Two of its choices deserve a word. The dataset list is split into an open tier that anyone can download (HAI, SMD, SKAB, PSM, SMAP, MSL) and a licensed tier (SWaT, WADI, obtained under the iTrust data-use agreement), and both tiers are reported here. And the drift injection is specified exactly, so that every method sees the same stream.
 
 Table 4. The benchmarking protocol.
 
@@ -198,7 +198,7 @@ Module 1 has two jobs: cutting the training streams into regimes for episode con
 
 *Training-time segmentation.* One ADWIN [@bifet2007adwin] runs per sensor on block means of ten steps. A regime boundary is placed when at least 20 % of the sensors have reported a change within the last 200 steps and the current regime is at least 400 steps long. Over-segmentation only costs episode diversity, so the vote is permissive. On SMD this yields 870 regimes with a median length of 400 steps from 20 training machines. The ablations replace this sampler with fixed chunks of the same median length and with regime-free random sampling.
 
-*Online gate.* Our PCEMS sketch ran ADWIN on the raw input with MMD on the embeddings as a second detector. Neither survived contact with real streams in that form. On server and process data the input statistics never stop moving, so a gate that fires on input change adapts every few hundred steps whether or not the model has stopped fitting. The quantity that matters is whether the model still fits. The gate therefore runs ADWIN on block means (ten windows) of the log residual, and only changes in which the retained window has the higher mean count, because a model that fits better than before needs no adaptation. The change must also be material: the retained mean has to exceed the level recorded after the last adaptation by at least 0.5 log units, a 65 % rise in residual. One such hit confirms a change; the block mean, the direction rule and the minimum shift already guard against spikes. A refractory period of 400 windows separates adaptations.
+*Online gate.* Our first design ran ADWIN on the raw input with MMD on the embeddings as a second detector. Neither survived contact with real streams in that form. On server and process data the input statistics never stop moving, so a gate that fires on input change adapts every few hundred steps whether or not the model has stopped fitting. The quantity that matters is whether the model still fits. The gate therefore runs ADWIN on block means (ten windows) of the log residual, and only changes in which the retained window has the higher mean count, because a model that fits better than before needs no adaptation. The change must also be material: the retained mean has to exceed the level recorded after the last adaptation by at least 0.5 log units, a 65 % rise in residual. One such hit confirms a change; the block mean, the direction rule and the minimum shift already guard against spikes. A refractory period of 400 windows separates adaptations.
 
 We also implemented the MMD branch [@gretton2012mmd]: the kernel two-sample statistic between the encoder embeddings of the last 64 windows and 300 reference embeddings recorded after the last adaptation, with a block-bootstrap null (the largest MMD² between any contiguous 64-window block of the reference set and the rest of it, times 1.5) and two consecutive exceedances required. Even with that conservative null it over-triggers on ordinary within-regime variation, and every adaptation it causes costs a fresh threshold calibration on a short window. Section 7.4 reports the variants with MMD alone and with both detectors; the full method uses the residual gate only.
 
@@ -271,7 +271,7 @@ Table 7. Ablations.
 |---|---|
 | DAMAD-rndM1 | episodes drawn from anywhere in the training stream, no regime boundaries |
 | DAMAD-noM1 | episodes from fixed chunks of the median ADWIN-regime length |
-| DAMAD+mmd | residual ADWIN and MMD both as the gate (the PCEMS sketch) |
+| DAMAD+mmd | residual ADWIN and MMD both as the gate (our first design) |
 | DAMAD-mmd | MMD only as the gate |
 | DAMAD-noM3 | no replay meta-update |
 | DAMAD-noM4 | threshold never recalibrated after the initial calibration |
@@ -458,7 +458,7 @@ A fourth point is not in the review, but Section 7.1 makes it clearly enough to 
 
 ## 8.2 What building DAMAD changed
 
-Three decisions in the implemented system differ from our conceptual sketch, and each came from a failure we could see in the traces.
+Three decisions in the implemented system differ from our first design, and each came from a failure we could see in the traces.
 
 The gate moved from the input to the residual. An input-side detector asks whether the world changed; a residual-side detector asks whether the model stopped fitting. Only the second question is the one that should trigger retraining, and on real streams the two questions have very different answers.
 
