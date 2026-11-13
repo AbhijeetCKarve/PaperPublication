@@ -48,7 +48,7 @@ We set out to find a method that is few-shot capable, drift-aware and deployable
 
 # Data and code availability {.unnumbered}
 
-The implementation, the dataset loaders, the experiment runner and every result table in this paper are available at the project repository. HAI 21.03, SMD, SKAB, PSM, SMAP and MSL are public and the loaders fetch or read them; SWaT and WADI must be requested from iTrust. The full corpus of the review, with a code on each taxonomy axis for every paper, is given as Table S1 in the supplementary file.
+The implementation, the dataset loaders, the experiment runner and every result table in this paper are available at the project repository. HAI 21.03, SMD, SKAB, PSM, SMAP and MSL are public and the loaders fetch or read them; SWaT and WADI must be requested from iTrust. The full corpus of the review, with a code on each taxonomy axis for every paper, is given as Table S1 in the supplementary file, together with the PRISMA flow diagram (Figure S1) and the PRISMA 2020 checklist.
 
 # Declaration {.unnumbered}
 

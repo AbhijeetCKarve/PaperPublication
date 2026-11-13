@@ -24,3 +24,6 @@ paper/latex/Definitions/*-eps-converted-to.pdf
 
 # assembled upload bundle (regenerated from the files above)
 paper/MAKE_submission_package.zip
+
+paper/supplementary_build/
+paper/supplementary_zip/
